@@ -1,0 +1,18 @@
+Package: balticcodpredation
+Title: Spatial Analysis of Baltic Cod Predation on Sprat and Herring
+Version: 1.0.0
+Authors@R:
+    person("Álvaro", "Peñuelas Sánchez",
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0007-0758-3543"))
+Description: Delta-gamma spatial models of cod predation intensity (stomach
+    content index) on sprat and herring in the Baltic Sea, 2014-2021.
+License: GPL-3
+Imports:
+    sdmTMB,
+    tidyverse,
+    sf,
+    DHARMa,
+    here,
+    piggyback
+Encoding: UTF-8

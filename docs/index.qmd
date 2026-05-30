@@ -1,0 +1,20 @@
+---
+title: "Baltic Cod Predation on Sprat and Herring"
+subtitle: "Spatial analysis using sdmTMB — Baltic Sea 2014–2021"
+---
+
+## Overview
+
+This site presents the results of a delta-gamma spatial model of Atlantic cod
+(*Gadus morhua*) predation on sprat (*Sprattus sprattus*) and herring
+(*Clupea harengus*) in the Baltic Sea.
+
+**Data:** ICES Stomach Content Database (EcoRegion 95, CC-BY 4.0)
+**Method:** sdmTMB spatial delta-gamma model (Anderson et al. 2025)
+**Period:** 2014–2021 (BITS/BIAS surveys, n = 4,092 cod stomachs)
+
+## Key results
+
+![Predicted probability of sprat occurrence](../outputs/figures/map_sprat_presence.png)
+
+See [Prediction Maps](maps.qmd) for full spatial results.

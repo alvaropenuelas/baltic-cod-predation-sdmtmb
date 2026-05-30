@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "Baltic cod predation on sprat and herring — sdmTMB analysis"
+authors:
+  - family-names: Peñuelas Sánchez
+    given-names: Álvaro
+    orcid: "https://orcid.org/0009-0007-0758-3543"
+version: "1.0.0"
+date-released: 2026-05-30
+license: GPL-3.0
+repository-code: "https://github.com/alvaropenuelas/baltic-cod-predation-sdmtmb"
+abstract: >
+  Spatial delta-gamma models (sdmTMB) of Atlantic cod predation intensity
+  on sprat and herring in the Baltic Sea, 2014-2021, using ICES stomach
+  content index data.
+keywords:
+  - sdmTMB
+  - fisheries ecology
+  - Baltic Sea
+  - Atlantic cod
+  - predator-prey
+  - spatial modelling
+references:
+  - type: article
+    title: "sdmTMB: an R package for fast, flexible, and user-friendly GLMMs with spatial and spatiotemporal random fields"
+    authors:
+      - family-names: Anderson
+        given-names: Sean C
+      - family-names: Ward
+        given-names: Eric J
+      - family-names: English
+        given-names: Philina A
+      - family-names: Barnett
+        given-names: Lewis AK
+      - family-names: Thorson
+        given-names: James T
+    journal: "Journal of Statistical Software"
+    volume: 115
+    issue: 2
+    year: 2025
+    doi: "10.18637/jss.v115.i02"
