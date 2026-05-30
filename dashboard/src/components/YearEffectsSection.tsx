@@ -79,6 +79,7 @@ export default function YearEffectsSection() {
                 strokeDasharray="4 4"
               />
               <Tooltip
+                cursor={{ fill: 'rgba(168, 200, 214, 0.06)', strokeWidth: 0 }}
                 contentStyle={{
                   background: colors.surface,
                   border: `1px solid ${colors.border}`,

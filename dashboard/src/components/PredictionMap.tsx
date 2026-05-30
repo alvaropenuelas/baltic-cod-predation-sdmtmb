@@ -51,15 +51,12 @@ const projection = geoMercator()
   .translate([WIDTH / 2, HEIGHT / 2]);
 const pathGen = geoPath().projection(projection);
 
-function rectPath(lon: number, lat: number): string {
-  const corners: [number, number][] = [
-    [lon - 0.5, lat - 0.25],
-    [lon + 0.5, lat - 0.25],
-    [lon + 0.5, lat + 0.25],
-    [lon - 0.5, lat + 0.25],
-  ];
-  const pts = corners.map(c => projection(c)!);
-  return `M${pts[0][0]},${pts[0][1]} L${pts[1][0]},${pts[1][1]} L${pts[2][0]},${pts[2][1]} L${pts[3][0]},${pts[3][1]} Z`;
+// NW corner → screen top-left; SE corner → screen bottom-right (Mercator y-flip)
+function projectedRect(lon: number, lat: number) {
+  const inset = 0.03;
+  const tl = projection([lon - 0.5 + inset, lat + 0.25 - inset])!;
+  const br = projection([lon + 0.5 - inset, lat - 0.25 + inset])!;
+  return { x: tl[0], y: tl[1], width: br[0] - tl[0], height: br[1] - tl[1] };
 }
 
 export default function PredictionMap() {
@@ -123,6 +120,16 @@ export default function PredictionMap() {
               viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
               style={{ maxWidth: "100%", height: "auto" }}
             >
+              <defs>
+                <filter id="rect-glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="2.5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
               {/* Graticule */}
               <path
                 d={pathGen(geoGraticule().step([5, 5])()) ?? ""}
@@ -144,20 +151,23 @@ export default function PredictionMap() {
               {/* Prediction rectangles */}
               <AnimatePresence mode="wait">
                 {preds.map(row => {
-                  const val   = row[mode] as number;
-                  const color = colorScale(val);
+                  const val    = row[mode] as number;
+                  const color  = colorScale(val);
+                  const r      = projectedRect(row.lon, row.lat);
+                  const isHov  = hovered?.ices_rect === row.ices_rect;
                   return (
-                    <motion.path
+                    <motion.rect
                       key={`${row.ices_rect}-${mode}`}
-                      d={rectPath(row.lon, row.lat)}
+                      x={r.x} y={r.y} width={r.width} height={r.height}
+                      rx={3} ry={3}
                       fill={color}
-                      stroke="#1a3a6b"
-                      strokeWidth={0.4}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 0.85 }}
+                      stroke={isHov ? "#a8c8d6" : "#1d3a52"}
+                      strokeWidth={isHov ? 1.5 : 0.4}
+                      style={{ cursor: "pointer", filter: isHov ? "url(#rect-glow)" : undefined }}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: isHov ? 1 : 0.82, scale: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4 }}
-                      style={{ cursor: "pointer" }}
+                      transition={{ duration: 0.35 }}
                       onMouseEnter={() => setHovered(row)}
                       onMouseLeave={() => setHovered(null)}
                     />

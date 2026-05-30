@@ -1,32 +1,29 @@
 export const colors = {
-  // Baltic palette
-  deep:    '#0a1628',
-  navy:    '#0e2448',
-  mid:     '#1a3a6b',
-  teal:    '#1b6ca8',
-  cyan:    '#2ab4d0',
+  bg:            'var(--color-bg)',
+  surface:       'var(--color-surface)',
+  elevated:      'var(--color-elevated)',
+  border:        'var(--color-border)',
+  textPrimary:   'var(--color-text-primary)',
+  textSecondary: 'var(--color-text-secondary)',
+  textMuted:     'var(--color-text-muted)',
+  // Accent colors stay fixed — don't change between modes
+  sprat:   '#5fa384',
+  herring: '#d4a574',
+  ice:     '#a8c8d6',
+  rust:    '#c45a4a',
+  // Aliases kept for component compatibility
   seafoam: '#4ecdc4',
-  sand:    '#e8d5b0',
   amber:   '#f4a261',
-  coral:   '#e76f51',
-  // UI tokens
-  bg:            '#0a1628',
-  surface:       '#0e2448',
-  elevated:      '#122b52',
-  border:        '#1a3a6b',
-  textPrimary:   '#e8d5b0',
-  textSecondary: '#a0b4c8',
-  textMuted:     '#5a7387',
-  // Semantic species
-  sprat:   '#4ecdc4',
-  herring: '#f4a261',
-  rust:    '#e76f51',
 } as const
 
+export const mapPalette = [
+  "#0a1a24", "#1d3a52", "#3d6478", "#a8c8d6",
+  "#e8eef2", "#d4a574", "#c8884f", "#a55a2f", "#7a3919",
+]
+
 export const chartColors = {
-  primary:   colors.cyan,
-  secondary: colors.seafoam,
-  accent:    colors.amber,
-  danger:    colors.coral,
-  muted:     colors.teal,
+  primary:   colors.sprat,
+  secondary: colors.ice,
+  accent:    colors.herring,
+  danger:    colors.rust,
 } as const
