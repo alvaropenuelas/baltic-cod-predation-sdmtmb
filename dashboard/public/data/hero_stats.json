@@ -1,0 +1,10 @@
+{
+  "n_stomachs": 4040,
+  "n_hauls": 260,
+  "pct_sprat": 21.3,
+  "pct_herring": 6.7,
+  "spatial_range_km": 32,
+  "n_years": 5,
+  "year_min": 2014,
+  "year_max": 2021
+}

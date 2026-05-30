@@ -52,6 +52,11 @@ outputs/*.gpkg
 /_book/
 docs/_site/
 
+# Dashboard — Node deps and build output (committed: src/, public/, config files)
+dashboard/node_modules/
+dashboard/dist/
+dashboard/.env*.local
+
 # OS / editor
 .DS_Store
 Thumbs.db
