@@ -51,8 +51,8 @@ function useThemeColors(): ThemeColors {
     const read = () => {
       const isLight = document.documentElement.classList.contains('light');
       setTc(isLight
-        ? { sea: '#dbe7ef', land: '#aec4d2', grat: '#c0d2de' }
-        : { sea: '#0a1622', land: '#24435a', grat: '#2d4e66' }
+        ? { sea: '#c9d8e0', land: '#e8d9bc', grat: '#b8c7d0' }
+        : { sea: '#0a1622', land: '#3a5468', grat: '#4a6478' }
       );
     };
     read();
@@ -168,7 +168,7 @@ export default function PredictionMap() {
                   d={pathGen(land) ?? ""}
                   fill={themeColors.land}
                   stroke={themeColors.grat}
-                  strokeWidth={1.2}
+                  strokeWidth={1.5}
                 />
               )}
 

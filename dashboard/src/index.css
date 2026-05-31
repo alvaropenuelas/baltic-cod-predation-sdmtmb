@@ -21,21 +21,21 @@
   --rgb-baltic-sand:  232 213 176;   /* #e8d5b0 */
 }
 
-/* ── Light palette ── */
+/* ── Light palette (warm) ── */
 :root.light {
-  --color-bg:             #eef3f6;
-  --color-surface:        #ffffff;
-  --color-elevated:       #dde8ef;
-  --color-border:         #c0d2de;
-  --color-text-primary:   #0a1a24;
-  --color-text-secondary: #2d4a5e;
-  --color-text-muted:     #5a7587;
-  --color-accent-heading: #a8703a;
-  /* Baltic RGB triplets — light equivalents */
-  --rgb-baltic-deep:  221 232 239;   /* #dde8ef */
-  --rgb-baltic-navy:  238 243 246;   /* #eef3f6 */
-  --rgb-baltic-mid:   192 210 222;   /* #c0d2de */
-  --rgb-baltic-sand:  10 26 36;      /* #0a1a24 near-black */
+  --color-bg:             #f5efe6;   /* warm cream */
+  --color-surface:        #fffaf3;   /* warmer white */
+  --color-elevated:       #ebe2d2;   /* warm beige */
+  --color-border:         #d4c5a8;   /* warm tan */
+  --color-text-primary:   #1a1410;   /* warm near-black */
+  --color-text-secondary: #4a3e2e;   /* warm dark brown */
+  --color-text-muted:     #7a6952;   /* warm brown-grey */
+  --color-accent-heading: #a8703a;   /* darker amber, unchanged */
+  /* Baltic RGB triplets — warm light equivalents */
+  --rgb-baltic-deep:  235 226 210;   /* #ebe2d2 warm beige */
+  --rgb-baltic-navy:  245 239 230;   /* #f5efe6 warm cream */
+  --rgb-baltic-mid:   212 197 168;   /* #d4c5a8 warm tan */
+  --rgb-baltic-sand:  26 20 16;      /* #1a1410 warm near-black */
 }
 
 html {
