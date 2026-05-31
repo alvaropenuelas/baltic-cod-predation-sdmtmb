@@ -82,7 +82,7 @@ function projectedRect(lon: number, lat: number) {
 export default function PredictionMap() {
   const [preds, setPreds]       = useState<PredRow[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [coastline, setCoastline] = useState<any>(null);
+  const [land, setLand]         = useState<any>(null);
   const [mode, setMode]         = useState<MapMode>("p_sprat");
   const [hovered, setHovered]   = useState<PredRow | null>(null);
   const svgRef                  = useRef<SVGSVGElement>(null);
@@ -92,10 +92,10 @@ export default function PredictionMap() {
     const base = import.meta.env.BASE_URL;
     Promise.all([
       fetch(`${base}data/predictions.json`).then(r => r.json()),
-      fetch(`${base}data/baltic_coastline.json`).then(r => r.json()),
-    ]).then(([pData, cData]) => {
+      fetch(`${base}data/baltic_land.json`).then(r => r.json()),
+    ]).then(([pData, lData]) => {
       setPreds(pData);
-      setCoastline(cData);
+      setLand(lData);
     });
   }, []);
 
@@ -162,13 +162,13 @@ export default function PredictionMap() {
                 strokeWidth={0.5}
               />
 
-              {/* Coastline */}
-              {coastline && (
+              {/* Land polygons */}
+              {land && (
                 <path
-                  d={pathGen(coastline) ?? ""}
+                  d={pathGen(land) ?? ""}
                   fill={themeColors.land}
                   stroke={themeColors.grat}
-                  strokeWidth={1.2}
+                  strokeWidth={0.8}
                 />
               )}
 
