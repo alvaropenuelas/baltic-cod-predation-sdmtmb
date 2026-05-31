@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // CSS-variable-based theme-aware colors (dark/light mode)
+        // CSS-variable-based theme-aware colors
         bg:       'var(--color-bg)',
         surface:  'var(--color-surface)',
         elevated: 'var(--color-elevated)',
@@ -21,18 +21,19 @@ export default {
           sandDim: '#a37a4f',
           rust:    '#c45a4a',
           ice:     '#a8c8d6',
+          heading: 'var(--color-accent-heading)',
         },
         sprat:   '#5fa384',
         herring: '#d4a574',
-        // Legacy baltic palette — keeps existing components unstyled-safe
+        // Baltic palette — key colors backed by CSS vars (supports opacity modifiers)
         baltic: {
-          deep:    '#0a1628',
-          navy:    '#0e2448',
-          mid:     '#1a3a6b',
+          deep:    'rgb(var(--rgb-baltic-deep) / <alpha-value>)',
+          navy:    'rgb(var(--rgb-baltic-navy) / <alpha-value>)',
+          mid:     'rgb(var(--rgb-baltic-mid)  / <alpha-value>)',
           teal:    '#1b6ca8',
           cyan:    '#2ab4d0',
           seafoam: '#4ecdc4',
-          sand:    '#e8d5b0',
+          sand:    'rgb(var(--rgb-baltic-sand) / <alpha-value>)',
           amber:   '#f4a261',
           coral:   '#e76f51',
         },

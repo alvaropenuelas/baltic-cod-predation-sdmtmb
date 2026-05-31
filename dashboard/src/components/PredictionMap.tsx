@@ -37,10 +37,30 @@ function interpolateRgb(colorA: string, colorB: string) {
   };
 }
 
-function makeColorScale(maxVal: number, accentColor: string) {
+function makeColorScale(maxVal: number, accentColor: string, lowColor: string) {
   return scaleSequential()
     .domain([0, maxVal])
-    .interpolator(interpolateRgb("#0a1628", accentColor));
+    .interpolator(interpolateRgb(lowColor, accentColor));
+}
+
+interface ThemeColors { sea: string; land: string; grat: string; }
+
+function useThemeColors(): ThemeColors {
+  const [tc, setTc] = useState<ThemeColors>({ sea: '#0f2232', land: '#1a3447', grat: '#1d3a52' });
+  useEffect(() => {
+    const read = () => {
+      const isLight = document.documentElement.classList.contains('light');
+      setTc(isLight
+        ? { sea: '#dbe7ef', land: '#aec4d2', grat: '#c0d2de' }
+        : { sea: '#0f2232', land: '#1a3447', grat: '#1d3a52' }
+      );
+    };
+    read();
+    const obs = new MutationObserver(read);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => obs.disconnect();
+  }, []);
+  return tc;
 }
 
 const WIDTH = 700, HEIGHT = 560;
@@ -66,6 +86,7 @@ export default function PredictionMap() {
   const [mode, setMode]         = useState<MapMode>("p_sprat");
   const [hovered, setHovered]   = useState<PredRow | null>(null);
   const svgRef                  = useRef<SVGSVGElement>(null);
+  const themeColors             = useThemeColors();
 
   useEffect(() => {
     const base = import.meta.env.BASE_URL;
@@ -81,7 +102,7 @@ export default function PredictionMap() {
   const activeMeta = MODES.find(m => m.key === mode)!;
   const values     = preds.map(p => p[mode] as number);
   const maxVal     = Math.max(...values, 0.001);
-  const colorScale = makeColorScale(maxVal, activeMeta.color);
+  const colorScale = makeColorScale(maxVal, activeMeta.color, themeColors.sea);
 
   return (
     <section id="map" className="py-24 px-6 border-t border-baltic-mid">
@@ -112,7 +133,7 @@ export default function PredictionMap() {
 
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           {/* Map */}
-          <div className="relative rounded-2xl border border-baltic-mid overflow-hidden bg-baltic-navy/60">
+          <div className="relative rounded-2xl border border-baltic-mid overflow-hidden">
             <svg
               ref={svgRef}
               width={WIDTH}
@@ -130,11 +151,14 @@ export default function PredictionMap() {
                 </filter>
               </defs>
 
+              {/* Sea background */}
+              <rect x={0} y={0} width={WIDTH} height={HEIGHT} fill={themeColors.sea} />
+
               {/* Graticule */}
               <path
                 d={pathGen(geoGraticule().step([5, 5])()) ?? ""}
                 fill="none"
-                stroke="#1a3a6b"
+                stroke={themeColors.grat}
                 strokeWidth={0.5}
               />
 
@@ -142,8 +166,8 @@ export default function PredictionMap() {
               {coastline && (
                 <path
                   d={pathGen(coastline) ?? ""}
-                  fill="#0e2448"
-                  stroke="#1b6ca8"
+                  fill={themeColors.land}
+                  stroke={themeColors.grat}
                   strokeWidth={1.2}
                 />
               )}
@@ -161,7 +185,7 @@ export default function PredictionMap() {
                       x={r.x} y={r.y} width={r.width} height={r.height}
                       rx={3} ry={3}
                       fill={color}
-                      stroke={isHov ? "#a8c8d6" : "#1d3a52"}
+                      stroke={isHov ? "#a8c8d6" : themeColors.grat}
                       strokeWidth={isHov ? 1.5 : 0.4}
                       style={{ cursor: "pointer", filter: isHov ? "url(#rect-glow)" : undefined }}
                       initial={{ opacity: 0, scale: 0.9 }}
@@ -216,7 +240,7 @@ export default function PredictionMap() {
             <div
               className="w-8 h-48 rounded-full"
               style={{
-                background: `linear-gradient(to bottom, ${activeMeta.color}, #0a1628)`,
+                background: `linear-gradient(to bottom, ${activeMeta.color}, ${themeColors.sea})`,
               }}
             />
             <p className="text-xs text-baltic-sand/60 font-mono">{maxVal.toFixed(2)} max</p>
