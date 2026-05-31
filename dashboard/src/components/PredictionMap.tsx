@@ -46,13 +46,13 @@ function makeColorScale(maxVal: number, accentColor: string, lowColor: string) {
 interface ThemeColors { sea: string; land: string; grat: string; }
 
 function useThemeColors(): ThemeColors {
-  const [tc, setTc] = useState<ThemeColors>({ sea: '#0f2232', land: '#1a3447', grat: '#1d3a52' });
+  const [tc, setTc] = useState<ThemeColors>({ sea: '#0F1F28', land: '#2C5868', grat: '#C9BFA8' });
   useEffect(() => {
     const read = () => {
       const isLight = document.documentElement.classList.contains('light');
       setTc(isLight
-        ? { sea: '#98b4ba', land: '#c9c0a3', grat: '#7a8068' }
-        : { sea: '#0a1622', land: '#3a5468', grat: '#4a6478' }
+        ? { sea: '#6B8FAE', land: '#C9BFA8', grat: '#1B3A4B' }
+        : { sea: '#0F1F28', land: '#2C5868', grat: '#C9BFA8' }
       );
     };
     read();
@@ -185,7 +185,7 @@ export default function PredictionMap() {
                       x={r.x} y={r.y} width={r.width} height={r.height}
                       rx={3} ry={3}
                       fill={color}
-                      stroke={isHov ? "#a8c8d6" : themeColors.grat}
+                      stroke={isHov ? "#D9A856" : themeColors.grat}
                       strokeWidth={isHov ? 1.5 : 0.4}
                       style={{ cursor: "pointer", filter: isHov ? "url(#rect-glow)" : undefined }}
                       initial={{ opacity: 0, scale: 0.9 }}

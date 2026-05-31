@@ -4,38 +4,38 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Dark palette (default) ── */
+/* ── Dark palette (fisheries-derived: deep teal + cream) ── */
 :root {
-  --color-bg:             #0a1a24;
-  --color-surface:        #122838;
-  --color-elevated:       #1a3447;
-  --color-border:         #1d3a52;
-  --color-text-primary:   #e8eef2;
-  --color-text-secondary: #8ba3b8;
-  --color-text-muted:     #5a7387;
-  --color-accent-heading: #d4a574;
-  /* Baltic RGB triplets (space-separated) — enables opacity modifiers */
-  --rgb-baltic-deep:  10 22 40;      /* #0a1628 */
-  --rgb-baltic-navy:  14 36 72;      /* #0e2448 */
-  --rgb-baltic-mid:   26 58 107;     /* #1a3a6b */
-  --rgb-baltic-sand:  232 213 176;   /* #e8d5b0 */
+  --color-bg:             #0F1F28;   /* deep teal */
+  --color-surface:        #1B3A4B;   /* fisheries accent inverted as surface */
+  --color-elevated:       #2C5868;   /* teal light */
+  --color-border:         #3A6878;
+  --color-text-primary:   #F2EDE3;   /* cream */
+  --color-text-secondary: #C9BFA8;   /* warm tan */
+  --color-text-muted:     #8A8A82;   /* warm grey */
+  --color-accent-heading: #D9A856;   /* warm amber (fisheries depleted) */
+  /* Baltic RGB triplets — dark */
+  --rgb-baltic-deep:   15 31 40;     /* #0F1F28 */
+  --rgb-baltic-navy:   27 58 75;     /* #1B3A4B */
+  --rgb-baltic-mid:    58 104 120;   /* #3A6878 */
+  --rgb-baltic-sand:  242 237 227;   /* #F2EDE3 cream */
 }
 
-/* ── Light palette (warm) ── */
+/* ── Light palette (fisheries EXACT) ── */
 :root.light {
-  --color-bg:             #f5efe6;   /* warm cream */
-  --color-surface:        #fffaf3;   /* warmer white */
-  --color-elevated:       #ebe2d2;   /* warm beige */
-  --color-border:         #d4c5a8;   /* warm tan */
-  --color-text-primary:   #1a1410;   /* warm near-black */
-  --color-text-secondary: #4a3e2e;   /* warm dark brown */
-  --color-text-muted:     #7a6952;   /* warm brown-grey */
-  --color-accent-heading: #a8703a;   /* darker amber, unchanged */
-  /* Baltic RGB triplets — warm light equivalents */
-  --rgb-baltic-deep:  235 226 210;   /* #ebe2d2 warm beige */
-  --rgb-baltic-navy:  245 239 230;   /* #f5efe6 warm cream */
-  --rgb-baltic-mid:   212 197 168;   /* #d4c5a8 warm tan */
-  --rgb-baltic-sand:  26 20 16;      /* #1a1410 warm near-black */
+  --color-bg:             #F2EDE3;   /* warm cream */
+  --color-surface:        #FFFFFF;
+  --color-elevated:       #FBF8F2;   /* warmer white */
+  --color-border:         #E0D9CB;   /* warm tan */
+  --color-text-primary:   #1A1A18;   /* warm near-black */
+  --color-text-secondary: #5A5A55;   /* warm grey-brown */
+  --color-text-muted:     #8A8A82;   /* warm lighter grey */
+  --color-accent-heading: #1B3A4B;   /* deep teal */
+  /* Baltic RGB triplets — light (fisheries-derived) */
+  --rgb-baltic-deep:  251 248 242;   /* #FBF8F2 elevated */
+  --rgb-baltic-navy:  242 237 227;   /* #F2EDE3 bg */
+  --rgb-baltic-mid:   224 217 203;   /* #E0D9CB border */
+  --rgb-baltic-sand:   26 26 24;     /* #1A1A18 text */
 }
 
 html {
@@ -49,17 +49,17 @@ body {
 
 :root:not(.light) body {
   background-image:
-    radial-gradient(at 0% 0%,   rgba(95,163,132,0.04) 0px, transparent 50%),
+    radial-gradient(at 0% 0%,   rgba(217,168,86,0.05) 0px, transparent 50%),
     radial-gradient(at 100% 100%, rgba(212,165,116,0.03) 0px, transparent 50%);
 }
 
 :root.light body {
   background-image:
-    radial-gradient(at 0% 0%,   rgba(95,163,132,0.06) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(212,165,116,0.05) 0px, transparent 50%);
+    radial-gradient(at 0% 0%,   rgba(27,58,75,0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(217,168,86,0.04) 0px, transparent 50%);
 }
 
 :focus-visible {
-  outline: 2px solid #5fa384;
+  outline: 2px solid #1B3A4B;
   outline-offset: 2px;
 }

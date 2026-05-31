@@ -7,18 +7,18 @@ export const colors = {
   textSecondary: 'var(--color-text-secondary)',
   textMuted:     'var(--color-text-muted)',
   // Accent colors stay fixed — don't change between modes
-  sprat:   '#5fa384',
-  herring: '#d4a574',
-  ice:     '#a8c8d6',
-  rust:    '#c45a4a',
-  // Aliases kept for component compatibility
-  seafoam: '#4ecdc4',
-  amber:   '#f4a261',
+  sprat:   '#5fa384',  // brand (kept)
+  herring: '#d4a574',  // brand (kept)
+  ice:     '#6B8FAE',  // fisheries declining
+  rust:    '#B33A3A',  // fisheries collapsed
+  // Aliases — fisheries-aligned
+  seafoam: '#4A8B6F',  // fisheries stable
+  amber:   '#D9A856',  // fisheries depleted
 } as const
 
 export const mapPalette = [
-  "#0a1a24", "#1d3a52", "#3d6478", "#a8c8d6",
-  "#e8eef2", "#d4a574", "#c8884f", "#a55a2f", "#7a3919",
+  "#0F1F28", "#1B3A4B", "#2C5868", "#6B8FAE",
+  "#F2EDE3", "#D9A856", "#C77D2E", "#B33A3A", "#7A2A2A",
 ]
 
 export const chartColors = {

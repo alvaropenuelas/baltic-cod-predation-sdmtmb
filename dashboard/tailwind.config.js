@@ -15,27 +15,28 @@ export default {
           muted:     'var(--color-text-muted)',
         },
         accent: {
-          kelp:    '#5fa384',
+          kelp:    '#5fa384',  // sprat brand (kept)
           kelpDim: '#3d7a5f',
-          sand:    '#d4a574',
+          sand:    '#d4a574',  // herring brand (kept)
           sandDim: '#a37a4f',
-          rust:    '#c45a4a',
-          ice:     '#a8c8d6',
+          rust:    '#B33A3A',  // fisheries collapsed
+          ice:     '#6B8FAE',  // fisheries declining (dusty blue)
           heading: 'var(--color-accent-heading)',
         },
+        // Brand data series — preserved
         sprat:   '#5fa384',
         herring: '#d4a574',
-        // Baltic palette — key colors backed by CSS vars (supports opacity modifiers)
+        // Baltic palette — fisheries-aligned where not brand
         baltic: {
           deep:    'rgb(var(--rgb-baltic-deep) / <alpha-value>)',
           navy:    'rgb(var(--rgb-baltic-navy) / <alpha-value>)',
           mid:     'rgb(var(--rgb-baltic-mid)  / <alpha-value>)',
-          teal:    '#1b6ca8',
-          cyan:    '#2ab4d0',
-          seafoam: '#4ecdc4',
+          teal:    '#1B3A4B',  // fisheries accent
+          cyan:    '#2C5868',  // fisheries teal-light
+          seafoam: '#4A8B6F',  // fisheries stable (sage)
           sand:    'rgb(var(--rgb-baltic-sand) / <alpha-value>)',
-          amber:   '#f4a261',
-          coral:   '#e76f51',
+          amber:   '#D9A856',  // fisheries depleted
+          coral:   '#B33A3A',  // fisheries collapsed
         },
       },
       fontFamily: {
