@@ -15,9 +15,9 @@ interface PredRow {
 type MapMode = "p_sprat" | "exp_wgt_sprat" | "p_herring";
 
 const MODES: { key: MapMode; label: string; unit: string; color: string }[] = [
-  { key: "p_sprat",       label: "P(sprat in stomach)",    unit: "probability", color: "#4ecdc4" },
-  { key: "exp_wgt_sprat", label: "Expected sprat weight",  unit: "grams",       color: "#f4a261" },
-  { key: "p_herring",     label: "P(herring in stomach)",  unit: "probability", color: "#2ab4d0" },
+  { key: "p_sprat",       label: "P(sprat in stomach)",    unit: "probability", color: "#4A8B6F" },
+  { key: "exp_wgt_sprat", label: "Expected sprat weight",  unit: "grams",       color: "#D9A856" },
+  { key: "p_herring",     label: "P(herring in stomach)",  unit: "probability", color: "#6B8FAE" },
 ];
 
 function hexToRgb(hex: string) {

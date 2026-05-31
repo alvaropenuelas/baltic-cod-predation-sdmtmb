@@ -1,0 +1,20 @@
+{
+  "range_km": {
+    "estimate": 31.675,
+    "conf_low": 8.494,
+    "conf_high": 118.122
+  },
+  "sigma_O": {
+    "estimate": 2.018,
+    "conf_low": 0.858,
+    "conf_high": 4.745
+  },
+  "max_grad": 1.5e-09,
+  "converged": true,
+  "n_obs": 3451,
+  "n_knots": 84,
+  "zero_inf_ratio": 1.168,
+  "zero_inf_p": 0,
+  "dispersion_stat": 1.22,
+  "dispersion_p": 0.03
+}

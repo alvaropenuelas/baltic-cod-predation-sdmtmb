@@ -6,14 +6,14 @@ export const colors = {
   textPrimary:   'var(--color-text-primary)',
   textSecondary: 'var(--color-text-secondary)',
   textMuted:     'var(--color-text-muted)',
-  // Accent colors stay fixed — don't change between modes
-  sprat:   '#5fa384',  // brand (kept)
-  herring: '#d4a574',  // brand (kept)
-  ice:     '#6B8FAE',  // fisheries declining
+  // Accent colors — fisheries-aligned
+  sprat:   '#4A8B6F',  // fisheries stable (primary data — sage green)
+  herring: '#D9A856',  // fisheries depleted (secondary — warm amber)
+  ice:     '#6B8FAE',  // fisheries declining (tertiary — dusty blue)
   rust:    '#B33A3A',  // fisheries collapsed
-  // Aliases — fisheries-aligned
-  seafoam: '#4A8B6F',  // fisheries stable
-  amber:   '#D9A856',  // fisheries depleted
+  // Aliases
+  seafoam: '#4A8B6F',
+  amber:   '#D9A856',
 } as const
 
 export const mapPalette = [

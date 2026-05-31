@@ -15,17 +15,17 @@ export default {
           muted:     'var(--color-text-muted)',
         },
         accent: {
-          kelp:    '#5fa384',  // sprat brand (kept)
-          kelpDim: '#3d7a5f',
-          sand:    '#d4a574',  // herring brand (kept)
-          sandDim: '#a37a4f',
+          kelp:    '#4A8B6F',  // fisheries stable (sage green — sprat series)
+          kelpDim: '#2C6E4F',  // fisheries recovering (deeper green)
+          sand:    '#D9A856',  // fisheries depleted (warm amber — herring series)
+          sandDim: '#C77D2E',  // fisheries overexploited (burnt orange)
           rust:    '#B33A3A',  // fisheries collapsed
           ice:     '#6B8FAE',  // fisheries declining (dusty blue)
           heading: 'var(--color-accent-heading)',
         },
-        // Brand data series — preserved
-        sprat:   '#5fa384',
-        herring: '#d4a574',
+        // Data series — fisheries-aligned
+        sprat:   '#4A8B6F',  // fisheries stable
+        herring: '#D9A856',  // fisheries depleted
         // Baltic palette — fisheries-aligned where not brand
         baltic: {
           deep:    'rgb(var(--rgb-baltic-deep) / <alpha-value>)',

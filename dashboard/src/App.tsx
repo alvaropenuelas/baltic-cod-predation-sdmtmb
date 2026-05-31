@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Hero from "./components/Hero";
 import BackgroundSection from "./components/BackgroundSection";
 import PredictionMap from "./components/PredictionMap";
+import DiagnosticsSection from "./components/DiagnosticsSection";
 import MarginalEffects from "./components/MarginalEffects";
 import YearEffectsSection from "./components/YearEffectsSection";
 import ModelComparison from "./components/ModelComparison";
@@ -15,8 +16,9 @@ gsap.registerPlugin(ScrollTrigger);
 const NAV_LINKS = [
   { href: "#hero",       label: "Overview"    },
   { href: "#background", label: "Background"  },
-  { href: "#map",        label: "Map"         },
-  { href: "#marginal",   label: "Effects"     },
+  { href: "#map",         label: "Map"         },
+  { href: "#diagnostics", label: "Diagnostics" },
+  { href: "#marginal",    label: "Effects"     },
   { href: "#year",       label: "Year"        },
   { href: "#models",     label: "Models"      },
   { href: "#limits",     label: "Limitations" },
@@ -110,6 +112,7 @@ export default function App() {
         <Hero />
         <div className="gsap-reveal"><BackgroundSection /></div>
         <div className="gsap-reveal"><PredictionMap /></div>
+        <div className="gsap-reveal"><DiagnosticsSection /></div>
         <div className="gsap-reveal"><MarginalEffects /></div>
         <div className="gsap-reveal"><YearEffectsSection /></div>
         <div className="gsap-reveal"><ModelComparison /></div>
